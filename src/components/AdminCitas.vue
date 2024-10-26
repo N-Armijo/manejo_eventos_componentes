@@ -1,22 +1,16 @@
 <script setup>
-import { ref } from 'vue'
-import NewUserForm from './NewUserForm.vue'
-import PatientCard from './PatientCard.vue'
-
-// variable reactivas
-const pacientes = ref([])
-
-
-const agregarPaciente = (nuevoPaciente) => {
-  pacientes.value.push(nuevoPaciente)
-}
-
-// Función para eliminar un paciente usando el índice
-const removeCard = (idx) => {
-  pacientes.value.splice(idx, 1)
-}
+  import { ref } from 'vue'
+  import NewUserForm from './NewUserForm.vue'
+  import PatientCard from './PatientCard.vue'
+  const pacientes = ref([])
+  const agregarPaciente = (nuevoPaciente) => {
+    pacientes.value.push(nuevoPaciente)
+  }
+  //eliminar paciente usando index
+  const removeCard = (idx) => {
+    pacientes.value.splice(idx, 1)
+  }
 </script>
-
 <template>
   <NewUserForm @submit-form="agregarPaciente" />
   <div v-show="pacientes.length == 0">
@@ -35,12 +29,11 @@ const removeCard = (idx) => {
     />
   </div>
 </template>
-
 <style scoped>
-.pacientes {
-  margin-top: 2.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+  .pacientes {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 </style>

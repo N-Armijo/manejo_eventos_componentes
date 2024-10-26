@@ -1,21 +1,18 @@
 <script setup>
-
-defineProps({
-  paciente: String,
-  fecha: String,
-  hora: String,
-  gravedad: String,
-  motivo: String,
-  idx: Number
-});
-
-// Definir emit para eventos
-const emit = defineEmits(['remove-card']);
-
-// Función para emitir el evento de eliminar
-const removeCard = () => {
-  emit('remove-card');
-}
+  defineProps({
+    paciente: String,
+    fecha: String,
+    hora: String,
+    gravedad: String,
+    motivo: String,
+    idx: Number
+  });
+  // emit para eventos
+  const emit = defineEmits(['remove-card']);
+  // emitir el evento de eliminar
+  const removeCard = () => {
+    emit('remove-card');
+  }
 </script>
 <template>
   <div
@@ -34,20 +31,19 @@ const removeCard = () => {
   </div>
 </template>
 <style scoped>
-.card {
-  min-width: 10rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  text-align: center;
-}
-
-.yellow {
-  background-color: #f7f781;
-}
-.green {
-  background-color: #8ce28c;
-}
-.red {
-  background-color: #ee7d7d;
-}
+  .card {
+    min-width: 10rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+  .yellow {
+    background-color: #f7f781;
+  }
+  .green {
+    background-color: #8ce28c;
+  }
+  .red {
+    background-color: #ee7d7d;
+  }
 </style>

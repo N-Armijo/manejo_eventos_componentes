@@ -1,35 +1,30 @@
 <script setup>
-import { ref } from 'vue';
-
-const paciente = ref('');
-const hora = ref('');
-const fecha = ref('');
-const gravedad = ref('');
-const motivo = ref('');
-const optionGravedad = ['Baja', 'Media', 'Alta'];
-
-const emit = defineEmits(['submit-form']);
-
-const addPaciente = () => {
-  emit('submit-form', {
-    paciente: paciente.value,
-    hora: hora.value,
-    fecha: fecha.value,
-    gravedad: gravedad.value,
-    motivo: motivo.value,
-  });
-
-  // limpiar formulario
-  paciente.value = '';
-  hora.value = '';
-  fecha.value = '';
-  gravedad.value = '';
-  motivo.value = '';
-}
-
-const isFormValid = () => {
-  return paciente.value && fecha.value && hora.value && gravedad.value && motivo.value;
-}
+  import { ref } from 'vue';
+  const paciente = ref('');
+  const hora = ref('');
+  const fecha = ref('');
+  const gravedad = ref('');
+  const motivo = ref('');
+  const optionGravedad = ['Baja', 'Media', 'Alta'];
+  const emit = defineEmits(['submit-form']);
+  const addPaciente = () => {
+    emit('submit-form', {
+      paciente: paciente.value,
+      hora: hora.value,
+      fecha: fecha.value,
+      gravedad: gravedad.value,
+      motivo: motivo.value,
+    });
+    // limpiar formulario
+    paciente.value = '';
+    hora.value = '';
+    fecha.value = '';
+    gravedad.value = '';
+    motivo.value = '';
+  }
+  const isFormValid = () => {
+    return paciente.value && fecha.value && hora.value && gravedad.value && motivo.value;
+  }
 </script>
 <template>
   <form @submit.prevent="addPaciente">
@@ -63,29 +58,26 @@ const isFormValid = () => {
   </form>
 </template>
 <style>
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-button {
-  margin-top: 1.5rem;
-}
-
-.form-box {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px #0000001a;
+  }
+  button {
+    margin-top: 1.5rem;
+  }
+  .form-box {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>
